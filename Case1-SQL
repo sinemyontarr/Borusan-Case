@@ -1,0 +1,179 @@
+CASE 1
+Veri Hazırlama:
+ 
+-- UsedVehicles tablosunu oluştur
+CREATE TABLE UsedVehicles (
+  id INT PRIMARY KEY,
+  Make NVARCHAR(100),
+  Model NVARCHAR(100),
+  Year INT,
+  Mileage INT,
+  Price DECIMAL(18,2),
+  DaysOnMarket INT,
+  City NVARCHAR(20)
+);
+
+-- Örnek verileri ekle
+INSERT INTO UsedVehicles (ID, Make, Model, Year, Mileage, Price, DaysOnMarket, City) VALUES
+(0, 'Jeep', 'Renegade', 2019, 7, 23141.0, 522, 'Bayamon'),
+(1, 'Land Rover', 'Discovery Sport', 2020, 8, 46500.0, 207, 'San Juan'),
+(3, 'Land Rover', 'Discovery', 2020, 11, 67430.0, 196, 'San Juan'),
+(4, 'Land Rover', 'Discovery Sport', 2020, 7, 48880.0, 137, 'San Juan'),
+(5, 'Land Rover', 'Range Rover Velar', 2020, 12, 66903.0, 242, 'San Juan'),
+(6, 'Mazda', 'MAZDA3', 2019, 14, 23695.0, 447, 'Bayamon'),
+(7, 'Land Rover', 'Range Rover Velar', 2020, 11, 68520.0, 70, 'San Juan'),
+(8, 'Land Rover', 'Discovery Sport', 2020, 8, 51245.0, 196, 'San Juan'),
+(9, 'Land Rover', 'Range Rover Evoque', 2020, 254, 84399.0, 510, 'San Juan'),
+(10, 'Alfa Romeo', '4C', 2015, 301, 97579.0, 1252, 'Guaynabo'),
+(509, 'Jeep', 'Cherokee', 2020, 16, 23707.0, 57, 'East Hartford'),
+(510, 'Nissan', 'Pathfinder', 2013, 103582, 12733.0, 7, 'East Hartford'),
+(511, 'Kia', 'Sorento', 2017, 31055, 17139.0, 77, 'Bohemia'),
+(512, 'BMW', '4 Series', 2017, 57498, 23300.0, 70, 'Bronx'),
+(513, 'Chevrolet', 'Equinox', 2018, 41092, 18403.0, 64, 'Bohemia'),
+(514, 'Chevrolet', 'Silverado 1500', 2017, 36399, 32739.0, 56, 'Bay Shore'),
+(515, 'RAM', '1500', 2014, 112743, 18883.0, 14, 'East Hartford'),
+(516, 'Chrysler', 'Pacifica', 2019, 49167, 19724.0, 77, 'Bay Shore'),
+(517, 'Kia', 'Sorento', 2017, 31055, 17433.0, 73, 'Bohemia'),
+(518, 'Chevrolet', 'Traverse', 2017, 16383, 24972.0, 10, 'Bay Shore'),
+(1042, 'Kia', 'Sportage', 2021, 2, 27665.0, 3, 'Bohemia'),
+(1043, 'Kia', 'Sportage', 2021, 2, 27725.0, 3, 'Bohemia'),
+(1044, 'Jeep', 'Cherokee', 2020, 16, 31005.0, 276, 'East Hartford'),
+(1046, 'Jeep', 'Cherokee', 2020, 16, 31034.0, 378, 'East Hartford'),
+(1048, 'Jeep', 'Compass', 2011, 107162, 3999.0, 73, 'Little Ferry'),
+(1049, 'Kia', 'Niro', 2020, 11, 24345.0, 15, 'Bohemia'),
+(1050, 'Kia', 'Sedona', 2021, 6, 30220.0, 15, 'Bohemia'),
+(1051, 'Honda', 'Odyssey', 2011, 90557, 10750.0, 38, 'Little Ferry'),
+(1052, 'Acura', 'MDX', 2016, 47134, 19999.0, 70, 'Little Ferry'),
+(1053, 'Chevrolet', 'Impala', 2010, 141659, 3750.0, 11, 'Little Ferry'),
+(1055, 'Kia', 'Optima', 2020, 2, 30350.0, 10, 'Bohemia'),
+(1730, 'Mercedes-Benz', 'E-Class', 2017, 36505, 26495.0, 112, 'Great Neck'),
+(1732, 'Jeep', 'Grand Cherokee', 2014, 108259, 13290.0, 38, 'West Hartford'),
+(1733, 'Mercedes-Benz', 'E-Class', 2018, 35996, 32995.0, 55, 'Great Neck'),
+(1734, 'Honda', 'Civic', 2009, 117580, 6490.0, 7, 'West Hartford'),
+(1737, 'Mercedes-Benz', 'C-Class', 2017, 43090, 20995.0, 249, 'Great Neck'),
+(1738, 'Mercedes-Benz', 'C-Class', 2016, 40680, 16195.0, 242, 'Great Neck'),
+(1741, 'BMW', '5 Series', 2018, 34493, 32995.0, 47, 'Great Neck'),
+(1742, 'Mercedes-Benz', 'E-Class', 2018, 40367, 39995.0, 64, 'Great Neck'),
+(1743, 'RAM', '3500', 2020, 23, 59352.0, 252, 'East Hartford'),
+(1744, 'Honda', 'Pilot', 2011, 95904, 11250.0, 19, 'West Hartford'),
+(2243, 'Mazda', 'CX-5', 2020, 0, 34500.0, 5, 'Lodi'),
+(2244, 'Mazda', 'CX-5', 2020, 0, 30995.0, 45, 'Lodi'),
+(2245, 'Mazda', 'CX-5', 2020, 0, 30995.0, 46, 'Lodi'),
+(2246, 'Mazda', 'CX-5', 2020, 0, 34500.0, 4, 'Lodi'),
+(2247, 'Mazda', 'CX-5', 2020, 0, 34500.0, 4, 'Lodi'),
+(2248, 'Mazda', 'CX-5', 2020, 0, 37520.0, 13, 'Lodi'),
+(2249, 'Mazda', 'CX-9', 2020, 0, 40875.0, 25, 'Lodi'),
+(2250, 'Mazda', 'CX-5', 2020, 0, 30995.0, 25, 'Lodi'),
+(2251, 'Mazda', 'CX-5', 2020, 0, 30995.0, 21, 'Lodi'),
+(2252, 'Mazda', 'CX-5', 2020, 0, 34700.0, 19, 'Lodi'),
+(3255, 'BMW', 'X5', 2018, 17309, 41800.0, 40, 'Linden'),
+(3256, 'Hyundai', 'Tucson', 2021, 10, 24606.0, 21, 'West Nyack'),
+(3257, 'Jeep', 'Cherokee', 2015, 48600, 16888.0, 63, 'Croton-On-Hudson'),
+(3258, 'Mercedes-Benz', 'C-Class', 2018, 18895, 27495.0, 24, 'Little Ferry'),
+(3259, 'Hyundai', 'Tucson', 2017, 18040, 18591.0, 16, 'Stamford'),
+(3260, 'Volvo', 'XC40', 2021, 164, 46765.0, 25, 'Huntington'),
+(3261, 'Lincoln', 'Corsair', 2020, 15, 42669.0, 4, 'Wayne'),
+(3262, 'Pontiac', 'G8', 2009, 61356, 29995.0, 40, 'Islip Terrace'),
+(3263, 'Nissan', 'Rogue', 2012, 98320, 8995.0, 11, 'Islip Terrace'),
+(3264, 'Hyundai', 'Elantra', 2018, 8015, 14791.0, 19, 'Stamford'),
+(4258, 'Toyota', 'Camry', 2019, 19516, 18995.0, 45, 'Patchogue'),
+(4259, 'Mitsubishi', 'Outlander Sport', 2019, 11, 16295.0, 536, 'Green Brook'),
+(4260, 'Toyota', 'Tundra', 2014, 98490, 26904.0, 12, 'Waterford'),
+(4261, 'Hyundai', 'Tucson', 2020, 10, 31010.0, 90, 'West Nyack'),
+(4262, 'Volvo', 'XC90', 2020, 3, 66890.0, 56, 'Huntington'),
+(4263, 'Hyundai', 'Sonata', 2020, 9, 28360.0, 181, 'West Nyack'),
+(4264, 'Mitsubishi', 'Outlander Sport', 2019, 2, 16295.0, 532, 'Green Brook'),
+(4265, 'Chevrolet', 'Equinox', 2017, 27621, 16495.0, 45, 'Patchogue'),
+(4266, 'Cadillac', 'CTS', 2017, 15702, 26990.0, 59, 'Green Brook'),
+(4267, 'Lincoln', 'Nautilus', 2020, 15, 55197.0, 76, 'Wayne'),
+(5282, 'Audi', 'A4', 2018, 38623, 23895.0, 10, 'White Plains'),
+(5283, 'Audi', 'A6', 2017, 48102, 22895.0, 10, 'White Plains'),
+(5284, 'Land Rover', 'LR2', 2013, 80398, 14495.0, 56, 'Plantsville'),
+(5285, 'Ford', 'Fusion', 2020, 0, 23737.0, 32, 'New Hudson'),
+(5286, 'Lexus', 'RX', 2018, 19256, 36895.0, 46, 'White Plains'),
+(5287, 'Kia', 'Sportage', 2020, 3, 25040.0, 160, 'White Plains'),
+(5288, 'Volkswagen', 'Jetta', 2020, 0, 24874.0, 4, 'Roselle'),
+(5289, 'Jeep', 'Renegade', 2017, 53864, 16456.0, 32, 'Roselle'),
+(5290, 'Jeep', 'Wrangler Unlimited', 2017, 54475, 33990.0, 21, 'Green Brook'),
+(5291, 'Toyota', 'Camry', 2012, 105116, 9975.0, 50, 'Hasbrouck Heights'),
+(6286, 'Ford', 'Fusion Hybrid', 2020, 5, 33685.0, 39, 'Great Neck'),
+(6287, 'INFINITI', 'G37', 2013, 99044, 11995.0, 14, 'Wall Township'),
+(6288, 'Ford', 'Fusion', 2020, 0, 23737.0, 24, 'New Hudson'),
+(6289, 'Toyota', 'Camry', 2018, 23858, 20767.0, 20, 'Yonkers'),
+(6290, 'Toyota', 'RAV4', 2017, 29744, 22004.0, 28, 'Yonkers'),
+(6291, 'Ford', 'Edge', 2020, 0, 44344.0, 200, 'Detroit'),
+(6292, 'Dodge', 'Grand Caravan', 2010, 103185, 11900.0, 56, 'Highland'),
+(6293, 'Mercedes-Benz', 'E-Class', 2017, 19404, 42995.0, 48, 'Wall Township'),
+(6294, 'Ford', 'Transit Connect', 2020, 5, 25058.0, 110, 'Milford'),
+(6295, 'Chrysler', 'Town & Country', 2015, 59579, 26900.0, 62, 'Highland'),
+(7302, 'Ford', 'F-350 Super Duty', 2020, 79, 41146.0, 203, 'Milford'),
+(7303, 'Ford', 'EcoSport', 2020, 0, 28828.0, 175, 'Detroit'),
+(7304, 'Kia', 'Sorento', 2011, 152801, 7995.0, 26, 'Paterson'),
+(7305, 'INFINITI', 'Q50', 2015, 77335, 16990.0, 26, 'Great Neck'),
+(7306, 'Ford', 'Explorer', 2020, 5, 58680.0, 22, 'Great Neck'),
+(7307, 'Ford', 'F-150', 2019, 21, 49540.0, 293, 'Great Neck'),
+(7308, 'Jeep', 'Grand Cherokee', 2011, 162730, 11495.0, 116, 'Paterson'),
+(7309, 'Lexus', 'RX', 2018, 25713, 35658.0, 3, 'Larchmont'),
+(7310, 'Ford', 'Fusion', 2017, 49816, 16680.0, 7, 'Milford'),
+(7311, 'Ford', 'Escape', 2017, 20045, 20999.0, 40, 'Milford');
+–Aynı yıl üretilmiş aynı marka model arabaların ortalama ve kendi fiyatları ve ortalamadan farkları
+ 
+WITH PriceCTE AS (
+    SELECT
+        ID,
+        Make_Name,
+        Model_Name,
+        Year,
+        Price,
+        City,
+        AVG(Price) OVER (
+            PARTITION BY Make_Name, Model_Name, Year
+        ) AS AvgPriceByCityMake
+    FROM UsedVehicles
+)
+ 
+ 
+SELECT
+    ID,
+    Make_Name,
+    Model_Name,
+    Year,
+    CAST(ROUND(Price,2) AS FLOAT) AS Price,
+    City,
+    CAST(ROUND(AvgPriceByCityMake,2) AS FLOAT) AS AvgPriceByCityMake,
+    CAST(ROUND(Price - AvgPriceByCityMake,2) AS FLOAT) AS fark_marka
+FROM PriceCTE;
+ 
+ 
+ -- Şehir bazlı arabaların ortalama fiyatı ve araba sayısı
+ 
+SELECT 
+    City,
+    CAST(ROUND(AVG(Price),1) AS FLOAT) AS ortalama_fiyat,
+    COUNT(*) AS vehicle_count
+FROM UsedVehicles
+GROUP BY City
+ORDER BY avg_price DESC;
+ 
+ 
+ -- Şehir ve marka bazlı arabaların ortalama fiyatı ve araba sayısı 
+ 
+SELECT 
+    City,
+    Make_Name,
+    AVG(Price) AS avg_price,
+    COUNT(*)   AS vehicle_count
+FROM UsedVehicles
+GROUP BY City,Make_Name
+ORDER BY avg_price DESC;
+ 
+–Model bazlı araçların ilanda ortalama kalma süresi
+ 
+SELECT 
+    Model_Name,
+    AVG(DaysOnMarket) AS DaysonMarket
+FROM UsedVehicles
+GROUP BY Model_Name
+ORDER BY DaysonMarket ASC;
+ 
+ 
